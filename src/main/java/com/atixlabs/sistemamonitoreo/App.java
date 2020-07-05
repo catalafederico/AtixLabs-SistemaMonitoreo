@@ -1,3 +1,5 @@
+package com.atixlabs.sistemamonitoreo;
+
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -18,7 +20,7 @@ public class App
         try { constanteS = inputScanner.nextDouble(); } catch (Exception e) { System.out.println("Por favor, vuelva a intentar ingresando un valor nasdúmerico."); return; }
         System.out.println("Ingrese el valor de la constante M:");
         try { constanteM = inputScanner.nextDouble(); } catch (Exception e){ System.out.println("Por favor, vuelva a intentar ingresando un valor númerico."); return; }
-
+        inputScanner.close();
         //Inicializo el sistema de monitoreo
         Set<Accion> acciones = new HashSet<Accion>(Arrays.asList(new ControlarM(), new ControlarS(), new LoguearProcesamiento()));
         SistemaMonitoreo sistemaMonitoreo = new SistemaMonitoreo(constanteS, constanteM, acciones);
