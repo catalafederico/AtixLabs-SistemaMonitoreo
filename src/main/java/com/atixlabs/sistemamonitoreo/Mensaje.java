@@ -1,6 +1,7 @@
+package com.atixlabs.sistemamonitoreo;
+
 import java.time.LocalDateTime;
 
-//Value Object
 public class Mensaje {
 
     private Integer sensorID;

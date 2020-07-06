@@ -1,3 +1,9 @@
+import com.atixlabs.sistemamonitoreo.Mensaje;
+import com.atixlabs.sistemamonitoreo.SistemaMonitoreo;
+import com.atixlabs.sistemamonitoreo.acciones.Accion;
+import com.atixlabs.sistemamonitoreo.acciones.ControlarM;
+import com.atixlabs.sistemamonitoreo.acciones.ControlarS;
+import com.atixlabs.sistemamonitoreo.acciones.LoguearProcesamiento;
 import org.junit.Before;
 import org.junit.Test;
 

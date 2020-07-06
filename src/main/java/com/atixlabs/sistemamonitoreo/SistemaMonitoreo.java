@@ -1,3 +1,7 @@
+package com.atixlabs.sistemamonitoreo;
+
+import com.atixlabs.sistemamonitoreo.acciones.Accion;
+
 import java.io.IOException;
 import java.util.*;
 import java.util.logging.*;
@@ -8,7 +12,7 @@ public class SistemaMonitoreo extends Thread {
     private Double S;
     private Double M;
     private List<Mensaje> colaMensajes = Collections.synchronizedList(new ArrayList<Mensaje>());
-    private List<Mensaje> mensajesAProcesar = Collections.synchronizedList(new ArrayList<Mensaje>());
+    private List<Mensaje> mensajesAProcesar = new ArrayList<Mensaje>();
     private Set<Accion> acciones;
     private final static Logger LOGGER = Logger.getLogger(SistemaMonitoreo.class.getName());
 
@@ -35,9 +39,7 @@ public class SistemaMonitoreo extends Thread {
         return this.colaMensajes;
     }
 
-    public List<Mensaje> getMensajesAProcesar() {
-        return this.mensajesAProcesar;
-    }
+    public List<Mensaje> getMensajesAProcesar() { return this.mensajesAProcesar; }
 
     public void inicializarLogger() throws IOException {
         Handler consoleHandler = new ConsoleHandler();
@@ -107,15 +109,18 @@ public class SistemaMonitoreo extends Thread {
 
     public Double getMedicionMinima(){ return Collections.min(getMediciones()); }
 
-    public Double getDiferenciaMedicionMaximaMinima(){ return (this.getMedicionMaxima() - this.getMedicionMinima()); }
+    public Double getDiferenciaMedicionMaximaMinima(){
+        return (this.getMedicionMaxima() - this.getMedicionMinima());
+    }
 
-    public Double getSumaMediciones() { return this.getMediciones().stream().mapToDouble(Double::doubleValue).sum(); }
+    public Double getSumaMediciones() {
+        return this.getMediciones().stream().mapToDouble(Double::doubleValue).sum();
+    }
 
     public Integer getCantidadMediciones() { return this.getMediciones().size(); }
 
-    public Double getPromedioMediciones() { return this.getSumaMediciones()/this.getCantidadMediciones(); }
-
-    public void desactivarLogging() {
-        //LOGGER
+    public Double getPromedioMediciones() {
+        return this.getSumaMediciones()/this.getCantidadMediciones();
     }
+
 }

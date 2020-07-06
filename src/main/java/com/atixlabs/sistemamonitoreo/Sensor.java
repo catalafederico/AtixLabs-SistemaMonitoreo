@@ -1,3 +1,5 @@
+package com.atixlabs.sistemamonitoreo;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -25,7 +27,6 @@ public class Sensor extends Thread {
         TimerTask task = new TimerTask() {
             public void run()
             {
-                //System.out.println("Sensor" + getID() + ": Enviando mensaje.");
                 enviarMensaje(new Mensaje(getID(), realizarMedicion()));
                 enviarMensaje(new Mensaje(getID(), realizarMedicion()));
             }

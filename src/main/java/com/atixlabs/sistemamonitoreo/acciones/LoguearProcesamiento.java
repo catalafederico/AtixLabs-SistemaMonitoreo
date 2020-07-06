@@ -1,3 +1,7 @@
+package com.atixlabs.sistemamonitoreo.acciones;
+
+import com.atixlabs.sistemamonitoreo.SistemaMonitoreo;
+
 import java.io.IOException;
 import java.util.logging.*;
 
