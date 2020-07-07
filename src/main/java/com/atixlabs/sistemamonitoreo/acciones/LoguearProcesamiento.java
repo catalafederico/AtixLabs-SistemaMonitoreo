@@ -28,7 +28,7 @@ public class LoguearProcesamiento implements Accion {
     public void ejecutar(SistemaMonitoreo sistemaMonitoreo) {
         LOGGER.info("Procesamiento de información." +
                 "\nValor máximo:" + sistemaMonitoreo.getMedicionMaxima() +
-                "\nValor mínima:" + sistemaMonitoreo.getMedicionMinima() +
+                "\nValor mínimo:" + sistemaMonitoreo.getMedicionMinima() +
                 "\nDiferencia entre valor máximo y mínimo: " + sistemaMonitoreo.getDiferenciaMedicionMaximaMinima() +
                 "\nSuma de mediciones: " + sistemaMonitoreo.getSumaMediciones() +
                 "\nCantidad de mediciones: " + sistemaMonitoreo.getCantidadMediciones() +
