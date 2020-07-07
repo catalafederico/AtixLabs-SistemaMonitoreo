@@ -7,7 +7,7 @@ import java.util.*;
 import java.util.logging.*;
 import java.util.stream.Collectors;
 
-public class SistemaMonitoreo extends Thread {
+public class SistemaMonitoreo implements Runnable {
 
     private Double S;
     private Double M;

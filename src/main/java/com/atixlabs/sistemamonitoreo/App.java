@@ -26,6 +26,7 @@ public class App
         System.out.println("Ingrese el valor de la constante M:");
         try { constanteM = inputScanner.nextDouble(); } catch (Exception e){ System.out.println("Por favor, vuelva a intentar ingresando un valor númerico."); return; }
         inputScanner.close();
+
         //Inicializo el sistema de monitoreo
         Set<Accion> acciones = new HashSet<Accion>(Arrays.asList(new ControlarM(), new ControlarS(), new LoguearProcesamiento()));
         SistemaMonitoreo sistemaMonitoreo = new SistemaMonitoreo(constanteS, constanteM, acciones);
@@ -36,12 +37,19 @@ public class App
         Sensor sensor_3 = new Sensor(3, sistemaMonitoreo);
         Sensor sensor_4 = new Sensor(4, sistemaMonitoreo);
 
+        //Creo los threads
+        Thread sistemaMonitoreoThread = new Thread(sistemaMonitoreo, "Sistema de Monitoreo");
+        Thread sensor1Thread = new Thread(sensor_1, "Sensor 1");
+        Thread sensor2Thread = new Thread(sensor_2, "Sensor 2");
+        Thread sensor3Thread = new Thread(sensor_3, "Sensor 3");
+        Thread sensor4Thread = new Thread(sensor_4, "Sensor 4");
+
         //Starteo los threads
-        sistemaMonitoreo.start();
+        sistemaMonitoreoThread.start();
         System.out.println("Ejecutando sistema de monitoreo.");
-        sensor_1.start();
-        sensor_2.start();
-        sensor_3.start();
-        sensor_4.start();
+        sensor1Thread.start();
+        sensor2Thread.start();
+        sensor3Thread.start();
+        sensor4Thread.start();
     }
 }

@@ -3,7 +3,7 @@ package com.atixlabs.sistemamonitoreo;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class Sensor extends Thread {
+public class Sensor implements Runnable {
     private Integer ID;
     private SistemaMonitoreo sistemaMonitoreo;
 
